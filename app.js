@@ -36,3 +36,31 @@ app.get('/this',(req,res)=>{
 app.listen(port,()=>{
     console.log(`This is first express app! on port ${port}`)
 })
+
+
+// 17-02-2022
+
+// Serving static file 
+
+// app.use('url',express.static('folderName',[options]))
+app.use('/static',express.static('static'));
+
+
+/**
+ * nodejs -> view
+ * django/flask -> template
+ */
+
+// Setting template engine
+app.set('view engine','pug');
+
+const path = require('path');
+
+// setting path to our views/template files
+app.set('views',path.join(__dirname,'views'));
+
+// pug demo template endpoint
+app.get('/demoTemplate',(req,res)=>{
+    // template0 is the name of the template created and (2nd param) in the object we pass the parameters that we declared in our pug file and the string values with keys will be rendered on the page=
+    res.status(200).render('template0',{title:"This is title",message:"This is a message that is injected via the express app and added to the template",para:"This is para 'see the title bar'"})
+})

@@ -1,0 +1,1 @@
+console.log("static file... javascript code will not be executed but it will be statically visible to user....")
