@@ -1,0 +1,55 @@
+<!-- set Language mode to HTML because we want to use HTMl here -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <title>Using plain HTML in pug</title> -->
+    <title>#{title}</title>
+    <!-- linking style.css file with pug file -->
+    <!-- This is how to embedd css file in pug html -->
+    style
+        include ../static/style.css
+
+    script
+        include ../static/script.js
+
+</head>
+<body>
+    <nav id="navbar">
+        <ul>
+            <li>Home</li>
+            <li>Services</li>
+            <li>About Us</li>
+            <li>Contact us</li>
+        </ul>
+    </nav>
+    <h1>This is Title(this is written plain)</h1>
+    <p>Using plain HTML in pug..by this we can use variables in HTML!! (this is also written plain)</p>
+
+    <h1>#{heading1}</h1> <!-- this is how we embed variables from express app to plain HTML -->
+    <p>#{content}</p>
+    <!-- either this way or  -->
+    <p>
+        |#{content}
+    </p>
+
+    <!-- Creating a form and sending data to backend using post-->
+    <div class="container">
+        <form action="/index" method="POST">
+            <input type="text" placeholder="Enter your name" name="name">
+            <input type="text" placeholder="Enter your city" name="city" id="">
+            <input type="text" placeholder="Enter address" name="address">
+            <input type="radio" class="gender" name="male">
+            <label for="gender">Male</label>
+            <input type="radio" class="gender" name="female">
+            <label for="gender">Female</label>
+            <input type="radio" class="gender" name="other">
+            <label for="gender">Other</label>
+            <textarea name="moreInfo" placeholder="More...." id="" cols="30" rows="10"></textarea>
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+</body>
+</html>
